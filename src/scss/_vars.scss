@@ -1,0 +1,38 @@
+$clr-white-text: white;
+$clr-white-text-hover: lightgray;
+$clr-button: rgb(119, 188, 37);
+$clr-button-shadow: rgb(70, 111, 21);
+$clr-focus: rgb(0, 124, 158);
+
+%title-font {
+    font-family: 'Bahnschrift';
+    font-weight: 400;
+    font-size: 36pt;
+    letter-spacing: .5rem;
+    text-transform: uppercase;
+    line-height: 60px;
+    color: $clr-white-text;
+}
+
+%menu-item-font {
+    font-family: 'Myriad Pro';
+    font-weight: 400;
+    font-size: 12pt;
+    letter-spacing: 1px;
+    color: $clr-white-text;
+}
+
+%description-font {
+    font-family:'Segoe UI';
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+%button-font {
+    font-family: 'Myriad Pro';
+    font-weight: 700;
+    font-size: 13pt;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: $clr-white-textwhite;
+}

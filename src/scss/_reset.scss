@@ -27,6 +27,11 @@ input, button, textarea, select {
   font: inherit;
 }
 
+button {
+  border: none;
+  outline: none;
+}
+
 a {
   text-decoration: none;
 }

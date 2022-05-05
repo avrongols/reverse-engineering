@@ -3,3 +3,107 @@
 @import 'reset';
 @import 'libs';
 @import 'global';
+
+.background-image {
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-image: url('images/main-section.png');
+    // min-height: 732px;
+    // min-width: 1200px;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        @extend %menu-item-font;
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 25px 90px;
+        padding: 50px 50px 28px 50px;
+
+        .menu {
+            display: flex;
+            align-items: center;
+
+            &__list {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px 60px;
+            }
+        
+            &__list-item {
+                flex-shrink: 0;
+                color: $clr-white-text;
+            }
+        }
+
+        .contacts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+
+            &__number-text {
+                flex-shrink: 0;
+                font-size: 11pt;
+            }
+
+            &__number-link, 
+            &__telegram-link, 
+            &__whatsapp-link {
+                display: flex;
+                flex-shrink: 0;
+                width: 32px;
+                height: 32px;
+            }
+
+            &__number-link {
+                background: url('images/number-link.png') no-repeat center center;
+                background-size: cover;
+            }
+
+            &__telegram-link {
+                background: url('images/telegram-link.png') no-repeat center center;
+                background-size: cover;
+            }
+
+            &__whatsapp-link {
+                background: url('images/whatsapp-link.png') no-repeat center center;
+                background-size: cover;
+            }
+        }
+    }
+
+    &__title-container {
+        display: flex;
+        padding-left: 50px;
+        max-width: 600px;
+    }
+    
+    &__title {
+        @extend %title-font;
+    }
+
+    &__description {
+        @extend  %description-font;
+        padding: 350px 50px 0px 50px;
+        text-align: center;
+        color: $clr-white-text;
+    }
+
+    &__button {
+        height: 50px;
+        padding: 0px 40px;
+        margin: 40px auto;
+    }
+}
+
+@import 'media';

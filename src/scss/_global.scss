@@ -2,6 +2,37 @@ html, body {
 	height: 100%;
 }
 
+::selection {background: $clr-focus; color: $clr-white-text;}
+::-moz-selection {background: $clr-focus; color: $clr-white-text;}
+::-webkit-selection {background: $clr-focus; color: $clr-white-text;}
+
+:focus {
+	outline: 3px solid $clr-focus;
+	outline-offset: 3px;
+}
+
+a {
+	&:link,
+	&:visited {
+		color: $clr-white-text;
+	}
+	&:hover {
+		color: $clr-white-text-hover;
+	}
+}
+
+button {
+	@extend %button-font;
+	background-color: $clr-button;
+	height: 50px;
+	border-radius: 20px;
+	padding: 0px 40px;
+	margin: 40px auto;
+	color: $clr-white-text;
+	box-shadow: 5px 5px 5px $clr-button-shadow;
+	cursor: pointer;
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;

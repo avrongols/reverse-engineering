@@ -1,0 +1,18 @@
+@media screen and (max-width: 955px) {
+    .main-section {
+        &__title-container {
+            max-width: 100%;
+            padding: 0;
+            margin: 0 auto;
+        }
+        &__title {
+            text-align: center;
+            font-size: 24pt;
+            letter-spacing: 0;
+            line-height: 40px;
+        }
+        &__description {
+            padding: 450px 0 0 0;
+        }
+    }
+}
