@@ -1,29 +1,15 @@
-.main-section__title {
+.main-section__title, .directions-section__title {
   font-family: 'Bahnschrift';
   font-weight: 400;
-  font-size: 36pt;
-  letter-spacing: .5rem;
-  text-transform: uppercase;
-  line-height: 60px;
-  color: white;
-}
-
-.directions-section__title {
-  font-family: 'Bahnschrift';
-  font-weight: 400;
-  font-size: 21pt;
   letter-spacing: 5px;
   text-transform: uppercase;
   line-height: 60px;
-  color: #007c9e;
 }
 
-.main-section__header {
+.main-section__header, .directions-section__cards .card__title, .directions-section__cards .card__text {
   font-family: 'Myriad Pro';
   font-weight: 400;
-  font-size: 12pt;
   letter-spacing: 1px;
-  color: white;
 }
 
 .main-section__description {
@@ -190,10 +176,12 @@ button {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background-image: url("images/main-section.png");
+  background-image: url("images/bg-main-section.png");
 }
 
 .main-section__header {
+  font-size: 12pt;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,13 +234,13 @@ button {
   gap: 12px;
 }
 
-.main-section__header .contacts__number-text {
+.main-section__header .contacts__number {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   font-size: 11pt;
 }
 
-.main-section__header .contacts__number-link, .main-section__header .contacts__telegram-link, .main-section__header .contacts__whatsapp-link {
+.main-section__header .contacts__link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,20 +248,6 @@ button {
       flex-shrink: 0;
   width: 32px;
   height: 32px;
-}
-
-.main-section__header .contacts__number-link {
-  background: url("images/number-link.png") no-repeat center center;
-  background-size: cover;
-}
-
-.main-section__header .contacts__telegram-link {
-  background: url("images/telegram-link.png") no-repeat center center;
-  background-size: cover;
-}
-
-.main-section__header .contacts__whatsapp-link {
-  background: url("images/whatsapp-link.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -283,6 +257,11 @@ button {
   display: flex;
   padding-left: 50px;
   max-width: 600px;
+}
+
+.main-section__title {
+  font-size: 36pt;
+  color: white;
 }
 
 .main-section__description {
@@ -298,7 +277,9 @@ button {
 }
 
 .directions-section__title {
+  font-size: 21pt;
   text-align: center;
+  color: #007c9e;
   margin: 50px auto;
 }
 
@@ -326,8 +307,24 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
   width: 300px;
   height: 300px;
+  pointer-events: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.directions-section__cards .card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 50, 50, 0.4);
 }
 
 .directions-section__cards .card__image {
@@ -336,29 +333,20 @@ button {
   position: absolute;
 }
 
-.directions-section__cards .card__image::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-}
-
 .directions-section__cards .card__title, .directions-section__cards .card__text {
-  z-index: 1;
   text-align: center;
   color: white;
+  z-index: 1;
 }
 
 .directions-section__cards .card__title {
-  margin: auto auto 0 auto;
+  font-size: 20pt;
+  line-height: 45px;
 }
 
 .directions-section__cards .card__text {
-  margin: 0 auto auto auto;
+  font-size: 13pt;
+  line-height: 30px;
 }
 
 @media screen and (max-width: 955px) {
