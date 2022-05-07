@@ -187,8 +187,8 @@ a:link, a:visited {
 }
 
 .button-open-form:active, .section-main .section-main__button:active {
-  -webkit-filter: brightness(1.1);
-          filter: brightness(1.1);
+  -webkit-filter: hue-rotate(15deg) !important;
+          filter: hue-rotate(15deg) !important;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -197,6 +197,8 @@ a:link, a:visited {
     transition: .25s;
   }
   .button-open-form:hover, .section-main .section-main__button:hover {
+    -webkit-filter: brightness(1.1);
+            filter: brightness(1.1);
     -webkit-transform: scale(1.05);
             transform: scale(1.05);
   }
@@ -304,8 +306,8 @@ a:link, a:visited {
 }
 
 .menu .menu__list-item:active {
-  -webkit-filter: brightness(1.1);
-          filter: brightness(1.1);
+  -webkit-filter: hue-rotate(15deg) !important;
+          filter: hue-rotate(15deg) !important;
 }
 
 .menu-contacts {
@@ -333,6 +335,16 @@ a:link, a:visited {
   font-size: 11pt;
 }
 
+.menu-contacts .menu-contacts__number {
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+.menu-contacts .menu-contacts__number:active {
+  -webkit-filter: hue-rotate(15deg) !important;
+          filter: hue-rotate(15deg) !important;
+}
+
 .menu-contacts .menu-contacts__link {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -350,8 +362,8 @@ a:link, a:visited {
 }
 
 .menu-contacts .menu-contacts__link:active {
-  -webkit-filter: brightness(1.1);
-          filter: brightness(1.1);
+  -webkit-filter: hue-rotate(15deg) !important;
+          filter: hue-rotate(15deg) !important;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -360,6 +372,8 @@ a:link, a:visited {
     transition: .25s;
   }
   .menu-contacts .menu-contacts__link:hover {
+    -webkit-filter: brightness(1.1);
+            filter: brightness(1.1);
     -webkit-transform: scale(1.05);
             transform: scale(1.05);
   }
