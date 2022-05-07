@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Конструкторское бюро</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="libs/ol/ol.css"/>
+    <script src="libs/ol/ol.js"></script>
 </head>
 
 <body>
@@ -32,17 +34,17 @@
                     </li>
                 </nav>
 
-                <div class="contacts">
+                <div class="menu-contacts">
                     <a class="contacts__number" href="tel:+7(999)999-99-99">
                         +7(999)999-99-99
                     </a>
-                    <a class="contacts__link" href="tel:+7(999)999-99-99">
+                    <a class="menu-contacts__link" href="tel:+7(999)999-99-99">
                         <img src="images/link/link-number.png" alt="Номер телефона">
                     </a>
-                    <a class="contacts__link" href="#">
+                    <a class="menu-contacts__link" href="#">
                         <img src="images/link/link-telegram.png" alt="Telegram">
                     </a>
-                    <a class="contacts__link" href="#">
+                    <a class="menu-contacts__link" href="#">
                         <img src="images/link/link-whatsapp.png" alt="WhatsApp">
                     </a>
                 </div>
@@ -233,10 +235,40 @@
             </div>
         </section>
 
-        <section class="section-faq container">
-            <h2 class="section-faq__title">
-                Часто задаваемые вопросы
-            </h2>
+        <section class="footer container">
+            <div class="footer__background"></div>
+            <div class="footer__inner">
+                <div class="footer__contacts">
+                    <h1 class="footer__contacts-title">
+                        Контакты
+                    </h1>
+                    <div class="footer__contacts-description">
+                        <p class="footer__contacts-item">
+                            Телефон:+7(999)999-99-99
+                        </p>
+                        <p class="footer__contacts-item">
+                            Имейл: info@mail.ru
+                        </p>
+                        <p class="footer__contacts-item">
+                            248000, Калуга, ул. Площадь Победы д.1
+                        </p>
+                    </div>
+                    <div class="menu-contacts">
+                        <a class="menu-contacts__link" href="tel:+7(999)999-99-99">
+                            <img src="images/link/link-number.png" alt="Номер телефона">
+                        </a>
+                        <a class="menu-contacts__link" href="#">
+                            <img src="images/link/link-telegram.png" alt="Telegram">
+                        </a>
+                        <a class="menu-contacts__link" href="#">
+                            <img src="images/link/link-whatsapp.png" alt="WhatsApp">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__map">
+                    <div id="map" class="map"></div>
+                </div>
+            </div>
         </section>
     </main>
     <!-- <footer class="footer"></footer> -->
