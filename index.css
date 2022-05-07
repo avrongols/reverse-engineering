@@ -92,8 +92,10 @@ a:link, a:visited {
   color: white;
 }
 
-a:hover {
-  color: #dedede;
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    color: #dedede;
+  }
 }
 
 ::-moz-selection {
