@@ -748,6 +748,12 @@ a:link, a:visited {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
+  .footer__contacts-title {
+    font-size: 22pt;
+  }
+  .footer__contacts-description {
+    font-size: 13pt;
+  }
 }
 
 @media screen and (max-width: 405px) {
