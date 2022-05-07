@@ -1,4 +1,4 @@
-.section-title, .section-directions .section-directions__title, .section-advantages .section-advantages__title, .section-faq .section-faq__title, .section-main .section-main__title, .section-footer .section-footer__contacts-title {
+.section-title, .section-directions .section-directions__title, .section-advantages .section-advantages__title, .section-faq .section-faq__title, .section-prices .section-prices__title, .section-main .section-main__title, .section-footer .section-footer__contacts-title {
   font-family: 'Bahnschrift';
   font-weight: 400;
   letter-spacing: 5px;
@@ -19,7 +19,7 @@
   letter-spacing: 1px;
 }
 
-.button-open-form, .section-main .section-main__button {
+.button-open-form, .section-main .section-main__button, .section-prices .section-prices__button {
   font-family: 'Myriad Pro';
   font-weight: 700;
   font-size: 13pt;
@@ -154,14 +154,14 @@ a:link, a:visited {
   padding: 0 15px;
 }
 
-.section-title, .section-directions .section-directions__title, .section-advantages .section-advantages__title, .section-faq .section-faq__title {
+.section-title, .section-directions .section-directions__title, .section-advantages .section-advantages__title, .section-faq .section-faq__title, .section-prices .section-prices__title {
   font-size: 21pt;
   text-align: center;
   color: #007c9e;
   margin: 50px auto;
 }
 
-.button-open-form, .section-main .section-main__button {
+.button-open-form, .section-main .section-main__button, .section-prices .section-prices__button {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
@@ -181,23 +181,23 @@ a:link, a:visited {
   cursor: pointer;
 }
 
-.button-open-form, .section-main .section-main__button {
+.button-open-form, .section-main .section-main__button, .section-prices .section-prices__button {
   -webkit-transition: .25s;
   transition: .25s;
 }
 
-.button-open-form:active, .section-main .section-main__button:active {
+.button-open-form:active, .section-main .section-main__button:active, .section-prices .section-prices__button:active {
   -webkit-filter: hue-rotate(15deg) !important;
           filter: hue-rotate(15deg) !important;
 }
 
-.button-open-form, .section-main .section-main__button {
+.button-open-form, .section-main .section-main__button, .section-prices .section-prices__button {
   -webkit-transition: .25s;
   transition: .25s;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .button-open-form:hover, .section-main .section-main__button:hover {
+  .button-open-form:hover, .section-main .section-main__button:hover, .section-prices .section-prices__button:hover {
     -webkit-filter: brightness(1.1);
             filter: brightness(1.1);
     -webkit-transform: scale(1.05);
@@ -626,6 +626,30 @@ a:link, a:visited {
   padding-top: 25px;
 }
 
+.section-prices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 2px solid #007c9e;
+  border-radius: 50px;
+  background-color: #fafafa;
+  margin-top: 50px;
+  padding: 25px 0 50px 0;
+}
+
+.section-prices .section-prices__title {
+  margin: 0;
+  padding-bottom: 25px;
+}
+
+.section-prices .section-prices__button {
+  margin: 0 auto;
+}
+
 .section-footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -731,7 +755,7 @@ a:link, a:visited {
 }
 
 @media screen and (max-width: 972px) {
-  .section-title, .section-directions .section-directions__title, .section-advantages .section-advantages__title, .section-faq .section-faq__title {
+  .section-title, .section-directions .section-directions__title, .section-advantages .section-advantages__title, .section-faq .section-faq__title, .section-prices .section-prices__title {
     line-height: 40px;
   }
   .section-main .section-main__title-container {
