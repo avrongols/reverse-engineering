@@ -18,6 +18,11 @@ const clear = () => {
   return del('dist');
 };
 
+const libs = () => {
+  return src('src/libs/**/*')
+    .pipe(dest('dist/libs'));
+};
+
 const scss = () => {
   return src('src/scss/**/*.scss')
     .pipe(sass({ outputStyle: 'expanded' }))
@@ -61,6 +66,7 @@ const watching = () => {
     server: './dist', 
     notify: false
   });
+  watch('src/libs/**/*', series(libs)).on('change', sync.reload);
   watch('src/**/*.html', series(html)).on('change', sync.reload);
   watch('src/scss/**/*.scss', series(scss)).on('change', sync.reload);
   watch('src/js/**/*.js', series(js)).on('change', sync.reload);
@@ -69,6 +75,6 @@ const watching = () => {
 };
 
 exports.clear = series(clear);
-exports.build = series(clear, scss, html, js, images, fonts);
-exports.default = series(clear, scss, html, js, images, fonts, watching);
+exports.build = series(clear, libs, scss, html, js, images, fonts);
+exports.default = series(clear, libs, scss, html, js, images, fonts, watching);
 exports.deploy = deploy;

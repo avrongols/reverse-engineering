@@ -25,6 +25,47 @@
     @include active;
 }
 
+.menu {
+    @include select-off;
+    display: flex;
+    align-items: center;
+
+    &__list {
+        @include focus;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 60px;
+    }
+
+    &__list-item {
+        flex-shrink: 0;
+        color: $clr-text-light;
+    }
+}
+
+.menu-contacts {
+    @include select-off;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    &__number {
+        flex-shrink: 0;
+        font-size: 11pt;
+    }
+
+    &__link {
+        @include active;
+        display: flex;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background-size: cover;
+    }
+}
+
 .section-main {
     display: flex;
     flex-direction: column;
@@ -47,47 +88,6 @@
         flex-wrap: wrap;
         gap: 25px 90px;
         padding: 50px 50px 28px 50px;
-
-        .menu {
-            @include select-off;
-            display: flex;
-            align-items: center;
-
-            &__list {
-                @include focus;
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 10px 60px;
-            }
-        
-            &__list-item {
-                flex-shrink: 0;
-                color: $clr-text-light;
-            }
-        }
-
-        .contacts {
-            @include select-off;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-
-            &__number {
-                flex-shrink: 0;
-                font-size: 11pt;
-            }
-
-            &__link {
-                @include active;
-                display: flex;
-                flex-shrink: 0;
-                width: 32px;
-                height: 32px;
-                background-size: cover;
-            }
-        }
     }
 
     &__title-container {
@@ -118,6 +118,51 @@
     }
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    pointer-events: none;
+    justify-content: center;
+    box-shadow: 4px 4px 8px $clr-image-shadow;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $clr-image-cover;
+    }
+
+    &__image  {
+        object-fit: cover;
+        position: absolute;
+    }
+
+    &__title, &__text {
+        @extend %font-regular;
+        text-align: center;
+        text-shadow: 1px 1px 1px $clr-text-dark;
+        color: $clr-text-light;
+        z-index: 1;
+    }
+
+    &__title {
+        font-size: 20pt;
+        line-height: 45px;
+    }
+
+    &__text {
+        font-size: 13pt;
+        line-height: 30px;
+    }
+}
+
 .section-directions {
     &__title {
         @extend .section-title;
@@ -129,51 +174,6 @@
         gap: 75px;
         flex-direction: row;
         justify-content: center;
-
-        .card {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            width: 300px;
-            height: 300px;
-            pointer-events: none;
-            justify-content: center;
-            box-shadow: 4px 4px 8px $clr-image-shadow;
-
-            &::after {
-                content: "";
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: $clr-image-cover;
-            }
-
-            &__image  {
-                object-fit: cover;
-                position: absolute;
-            }
-
-            &__title, &__text {
-                @extend %font-regular;
-                text-align: center;
-                text-shadow: 1px 1px 1px $clr-text-dark;
-                color: $clr-text-light;
-                z-index: 1;
-            }
-
-            &__title {
-                font-size: 20pt;
-                line-height: 45px;
-            }
-
-            &__text {
-                font-size: 13pt;
-                line-height: 30px;
-            }
-        }
     }
 }
 
@@ -258,9 +258,11 @@
             height: 100%;
             cursor: pointer;
 
-            &:hover {
-                .faq-list__btn-collapse {
-                    background-color: rgba($clr-text-dark, .15);
+            @include hover {
+                &:hover {
+                    .faq-list__btn-collapse {
+                        background-color: rgba($clr-text-dark, .15);
+                    }
                 }
             }
         }
@@ -318,6 +320,80 @@
             padding-top: 25px;
         }
     }
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+
+    &__background {
+        flex-wrap: wrap;
+        position: relative;
+        background-image: url('images/bg/bg-section-footer.jpg');
+        background-size: cover;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        height: 450px;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: row;
+        height: 350px;
+        box-shadow: 0 0 32px $clr-image-shadow;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 50%;
+        justify-content: space-between;
+        background-color: $clr-footer;
+        height: 350px;
+        padding: 40px;
+    }
+
+    &__contacts-title {
+        @extend %font-title;
+        color: $clr-text-light;
+        letter-spacing: 1px;
+        font-size: 26pt;
+        text-transform: none;
+        margin: 0 auto;
+    }
+
+    &__contacts-description {
+        @extend %font-light;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: flex-start;
+        color: $clr-text-light;
+        font-size: 16pt;
+    }
+
+    &__map {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 50%;
+        height: 350px;
+	}
+
+    .menu-contacts {
+        justify-content: flex-start;
+    }
+
+	.map {
+		width: 100%;
+		height: 100%;
+
+		&_default {
+			background: url('images/icon-img.svg') no-repeat center center;
+			background-color: transparent;
+		}
+	}
 }
 
 @import 'media';

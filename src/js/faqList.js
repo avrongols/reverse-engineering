@@ -36,8 +36,6 @@ if (document.querySelector('.faq-list')) {
         let button = item.querySelector('.faq-list__btn-collapse');
         let contentToCollapse = item.nextElementSibling;
 
-        console.log(contentToCollapse);
-
         if (item.getAttribute('aria-expanded') && item.getAttribute('aria-expanded') === 'true') {
             button.classList.remove('faq-list__btn-collapse_collapsed');
             showHideContent(contentToCollapse, true);

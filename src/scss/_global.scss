@@ -8,9 +8,11 @@ a {
 	&:visited {
 		color: $clr-text-light;
 	}
-	&:hover {
-		color: $clr-text-light-hover;
-	}
+	@include hover {
+		&:hover {
+			color: $clr-text-light-hover;
+		}
+    }
 }
 
 ::selection {background: $clr-accent; color: $clr-text-light;}

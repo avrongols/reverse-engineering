@@ -12,6 +12,14 @@ $clr-image-shadow: rgb(62, 62, 62);
 $clr-accent: rgb(0, 124, 158);
 $clr-divider: rgb(231, 231, 231);
 
+$clr-footer: rgb(70, 70, 70);
+
+@mixin hover {
+    @media (hover: hover) and (pointer: fine) {
+        @content
+    }
+}
+
 @mixin active {
     &:active {
         opacity: .85;

@@ -31,7 +31,7 @@
                 gap: 10px 20px;
             }
         }
-        .contacts {
+        .menu-contacts {
             flex-grow: 1;
         }
 
@@ -73,6 +73,20 @@
                 font-size: 16pt;
             }
             
+        }
+    }
+
+    .footer {
+        &__inner {
+            flex-wrap: wrap;
+        }
+
+        &__contacts-title {
+            font-size: 22pt;
+        }
+
+        &__contacts-description {
+            font-size: 13pt;
         }
     }
 }
