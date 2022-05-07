@@ -264,6 +264,9 @@ a:link, a:visited {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   background-image: url("images/bg/bg-section-main.png");
   background-size: cover;
