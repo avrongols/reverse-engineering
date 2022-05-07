@@ -22,7 +22,7 @@ a {
 }
 
 button {
-	@extend %button-font;
+	@extend %font-button;
 	background-color: $clr-button;
 	height: 50px;
 	border-radius: 20px;
