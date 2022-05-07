@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production",
-    "dev": "gulp build --development"
+    "dev": "gulp build --development",
+    "deploy": "gulp deploy"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "del": "^4.1.0",
+    "gh-pages": "^3.2.3",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-cli": "^2.3.0",

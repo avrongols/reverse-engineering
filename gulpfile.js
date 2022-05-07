@@ -11,6 +11,8 @@ const uglify          = require('gulp-uglify');
 const { production }  = require('gulp-mode')();
 const sync            = require('browser-sync').create();
 const del             = require('del');
+const ghPages         = require('gh-pages');
+const path            = require('path');
 
 const clear = () => {
   return del('dist');
@@ -50,6 +52,10 @@ const fonts = () => {
     .pipe(dest('dist/fonts'));
 };
 
+const deploy = (cb) => {
+  ghPages.publish(path.join(process.cwd(), 'dist'), cb);
+}
+
 const watching = () => {
   sync.init({ 
     server: './dist', 
@@ -65,3 +71,4 @@ const watching = () => {
 exports.clear = series(clear);
 exports.build = series(clear, scss, html, js, images, fonts);
 exports.default = series(clear, scss, html, js, images, fonts, watching);
+exports.deploy = deploy;
