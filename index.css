@@ -191,11 +191,12 @@ a:link, a:visited {
           filter: hue-rotate(15deg) !important;
 }
 
+.button-open-form, .section-main .section-main__button {
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .button-open-form, .section-main .section-main__button {
-    -webkit-transition: .25s;
-    transition: .25s;
-  }
   .button-open-form:hover, .section-main .section-main__button:hover {
     -webkit-filter: brightness(1.1);
             filter: brightness(1.1);
@@ -366,11 +367,12 @@ a:link, a:visited {
           filter: hue-rotate(15deg) !important;
 }
 
+.menu-contacts .menu-contacts__link {
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .menu-contacts .menu-contacts__link {
-    -webkit-transition: .25s;
-    transition: .25s;
-  }
   .menu-contacts .menu-contacts__link:hover {
     -webkit-filter: brightness(1.1);
             filter: brightness(1.1);
