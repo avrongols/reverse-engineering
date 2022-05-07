@@ -64,6 +64,17 @@
             line-height: 25px;
         }
     }
+
+    .section-faq {
+        .faq-list {
+            padding: 0 25px;
+
+            &__title {
+                font-size: 16pt;
+            }
+            
+        }
+    }
 }
 
 @media screen and (max-width: 405px) {

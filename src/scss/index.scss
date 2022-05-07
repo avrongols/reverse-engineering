@@ -8,7 +8,7 @@
     @extend %font-title;
     font-size: 21pt;
     text-align: center;
-    color: $clr-focus;
+    color: $clr-accent;
     margin: 50px auto;
 }
 
@@ -19,7 +19,7 @@
 	border-radius: 20px;
 	padding: 0px 40px;
 	margin: 40px auto;
-	color: $clr-white-text;
+	color: $clr-text-light;
 	box-shadow: 5px 5px 5px $clr-button-shadow;
 	cursor: pointer;
     @include active;
@@ -38,26 +38,10 @@
     // min-height: 732px;
     // min-width: 1200px;
 
-    // &__background {
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     right: 0;
-    //     width: 100%;
-    //     height: 100%; 
-    //     z-index: -1;
-    //     background-image: url('images/bg/bg-section-main.png');
-    //     background-size: cover;
-    //     background-position: center;
-    //     background-repeat: no-repeat;
-    //     filter: blur(8px);
-    //     -webkit-filter: blur(8px);
-    // }
-
     &__header {
         @extend %font-regular;
         font-size: 12pt;
-        color: $clr-white-text;
+        color: $clr-text-light;
         display: flex;
         justify-content: flex-end;
         flex-wrap: wrap;
@@ -65,24 +49,26 @@
         padding: 50px 50px 28px 50px;
 
         .menu {
+            @include select-off;
             display: flex;
             align-items: center;
 
             &__list {
+                @include focus;
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
                 gap: 10px 60px;
-                @include focus;
             }
         
             &__list-item {
                 flex-shrink: 0;
-                color: $clr-white-text;
+                color: $clr-text-light;
             }
         }
 
         .contacts {
+            @include select-off;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -94,12 +80,12 @@
             }
 
             &__link {
+                @include active;
                 display: flex;
                 flex-shrink: 0;
                 width: 32px;
                 height: 32px;
                 background-size: cover;
-                @include active;
             }
         }
     }
@@ -113,17 +99,18 @@
     &__title {
         @extend %font-title;
         font-size: 36pt;
-        color: $clr-white-text;
+        color: $clr-text-light;
     }
 
     &__description {
         @extend  %font-light;
         padding: 350px 50px 0px 50px;
         text-align: center;
-        color: $clr-white-text;
+        color: $clr-text-light;
     }
 
     &__button {
+        @include select-off;
         @extend .form-button;
         height: 50px;
         padding: 0px 40px;
@@ -172,7 +159,8 @@
             &__title, &__text {
                 @extend %font-regular;
                 text-align: center;
-                color: $clr-white-text;
+                text-shadow: 1px 1px 1px $clr-text-dark;
+                color: $clr-text-light;
                 z-index: 1;
             }
 
@@ -207,6 +195,7 @@
     }
 
     &__item-image {
+        @include select-off;
         width: 120px;
         height: 120px;
         margin: auto 0;
@@ -220,6 +209,7 @@
 
     &__item-title {
         @extend %font-light;
+        color: $clr-text-dark;
         font-size: 14pt;
         font-weight: 400;
         padding-bottom: 25px;
@@ -227,7 +217,106 @@
 
     &__item-text {
         @extend %font-light;
+        color: $clr-text-dark;
+        font-size: 13pt;
         line-height: 35px;
+    }
+}
+
+.section-faq {
+    &__title {
+        @extend .section-title;
+    }
+
+    .faq-list {
+        padding: 0 75px 50px 75px;
+
+        &__ul {
+            display: flex;
+            flex-direction: column;
+            min-width: 235px;
+        }
+
+        &__li {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: auto;
+            width: 100%;
+            border-bottom: 1px solid $clr-divider;
+            padding: 25px 0;
+
+            &:first-child {
+                border-top: 1px solid $clr-divider;
+            }
+        }
+        
+        &__item {
+            @include select-off;
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            cursor: pointer;
+
+            &:hover {
+                .faq-list__btn-collapse {
+                    background-color: rgba($clr-text-dark, .15);
+                }
+            }
+        }
+
+        &__title-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+        }
+
+        &__title {
+            @extend %font-light;
+            font-size: 20pt;
+            color: $clr-text-dark;
+            align-self: flex-start;
+        }
+
+        &__btn-collapse {
+            color: $clr-text-dark;
+            background: transparent url('images/icon/icon-close.svg') center no-repeat;
+            pointer-events: none;
+            display: flex;
+            border-radius: 100px;
+            margin: auto 14px;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            transition: transform .5s, height .5s, background-color .15s;
+
+            &_collapsed {
+                transform: rotate(45deg);
+            }
+        }
+
+        &__content {
+            @extend %font-light;
+            font-size: 13pt;
+            color: $clr-text-dark;
+            transition: .5s;
+
+            visibility: visible;
+            height: auto;
+            overflow: clip;
+
+            &_collapsed {
+                // display: none;
+                visibility: hidden;
+                height: 0;
+            }
+        }
+
+        &__description {
+            display: block;
+            padding-top: 25px;
+        }
     }
 }
 
