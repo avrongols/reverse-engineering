@@ -1,4 +1,4 @@
-.section-title, .section-directions__title, .section-advantages__title, .section-main__title {
+.section-title, .section-directions__title, .section-advantages__title, .section-faq__title, .section-main__title {
   font-family: 'Bahnschrift';
   font-weight: 400;
   letter-spacing: 5px;
@@ -12,7 +12,7 @@
   letter-spacing: 1px;
 }
 
-.section-main__description, .section-advantages__item-title, .section-advantages__item-text {
+.section-main__description, .section-advantages__item-title, .section-advantages__item-text, .section-faq .faq-list__title, .section-faq .faq-list__content {
   font-family: 'Segoe UI';
   font-weight: 100;
   letter-spacing: 1px;
@@ -88,15 +88,6 @@ html, body {
   transition: .12s;
 }
 
-a, button, input, textarea, select {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 a:link, a:visited {
   color: white;
 }
@@ -160,7 +151,7 @@ a:hover {
   padding: 0 15px;
 }
 
-.section-title, .section-directions__title, .section-advantages__title {
+.section-title, .section-directions__title, .section-advantages__title, .section-faq__title {
   font-size: 21pt;
   text-align: center;
   color: #007c9e;
@@ -218,6 +209,12 @@ a:hover {
 }
 
 .section-main__header .menu {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,6 +247,12 @@ a:hover {
 }
 
 .section-main__header .contacts {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -303,6 +306,12 @@ a:hover {
 }
 
 .section-main__button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   height: 50px;
   padding: 0px 40px;
   margin: 40px auto;
@@ -362,6 +371,7 @@ a:hover {
 
 .section-directions__cards .card__title, .section-directions__cards .card__text {
   text-align: center;
+  text-shadow: 1px 1px 1px #3c3c3c;
   color: white;
   z-index: 1;
 }
@@ -396,6 +406,12 @@ a:hover {
 }
 
 .section-advantages__item-image {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: 120px;
   height: 120px;
   margin: auto 0;
@@ -414,17 +430,141 @@ a:hover {
 }
 
 .section-advantages__item-title {
+  color: #3c3c3c;
   font-size: 14pt;
   font-weight: 400;
   padding-bottom: 25px;
 }
 
 .section-advantages__item-text {
+  color: #3c3c3c;
+  font-size: 13pt;
   line-height: 35px;
 }
 
+.section-faq .faq-list {
+  padding: 0 75px 50px 75px;
+}
+
+.section-faq .faq-list__ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 235px;
+}
+
+.section-faq .faq-list__li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: auto;
+  width: 100%;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 25px 0;
+}
+
+.section-faq .faq-list__li:first-child {
+  border-top: 1px solid #e7e7e7;
+}
+
+.section-faq .faq-list__item {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  cursor: pointer;
+}
+
+.section-faq .faq-list__item:hover .faq-list__btn-collapse {
+  background-color: rgba(60, 60, 60, 0.15);
+}
+
+.section-faq .faq-list__title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.section-faq .faq-list__title {
+  font-size: 20pt;
+  color: #3c3c3c;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.section-faq .faq-list__btn-collapse {
+  color: #3c3c3c;
+  background: transparent url("images/icon/icon-close.svg") center no-repeat;
+  pointer-events: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 100px;
+  margin: auto 14px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: height .5s, background-color .15s, -webkit-transform .5s;
+  transition: height .5s, background-color .15s, -webkit-transform .5s;
+  transition: transform .5s, height .5s, background-color .15s;
+  transition: transform .5s, height .5s, background-color .15s, -webkit-transform .5s;
+}
+
+.section-faq .faq-list__btn-collapse_collapsed {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.section-faq .faq-list__content {
+  font-size: 13pt;
+  color: #3c3c3c;
+  -webkit-transition: .5s;
+  transition: .5s;
+  visibility: visible;
+  height: auto;
+  overflow: clip;
+}
+
+.section-faq .faq-list__content_collapsed {
+  visibility: hidden;
+  height: 0;
+}
+
+.section-faq .faq-list__description {
+  display: block;
+  padding-top: 25px;
+}
+
 @media screen and (max-width: 955px) {
-  .section-title, .section-directions__title, .section-advantages__title {
+  .section-title, .section-directions__title, .section-advantages__title, .section-faq__title {
     line-height: 40px;
   }
   .section-main__title-container {
@@ -485,6 +625,12 @@ a:hover {
   }
   .section-advantages__item-text {
     line-height: 25px;
+  }
+  .section-faq .faq-list {
+    padding: 0 25px;
+  }
+  .section-faq .faq-list__title {
+    font-size: 16pt;
   }
 }
 
