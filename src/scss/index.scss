@@ -12,17 +12,71 @@
     margin: 50px auto;
 }
 
-.form-button {
+.button-open-form {
+    @include select-off;
+    @include active;
+    @include hover;
 	@extend %font-button;
+    align-items: center;
+    height: 50px;
+    padding: 0px 40px;
+    border-radius: 20px;
+    color: $clr-text-light;
 	background-color: $clr-button;
-	height: 50px;
-	border-radius: 20px;
-	padding: 0px 40px;
-	margin: 40px auto;
-	color: $clr-text-light;
 	box-shadow: 5px 5px 5px $clr-button-shadow;
 	cursor: pointer;
-    @include active;
+}
+
+.section-main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+
+    background-image: url('images/bg/bg-section-main.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    box-shadow: 0 0 32px $clr-image-shadow;
+    padding: 50px 65px 40px 65px;
+
+    .section-main__header {
+        @extend %font-regular;
+        font-size: 12pt;
+        color: $clr-text-light;
+
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+
+        gap: 25px 90px;
+        padding-bottom: 28px;
+    }
+
+    .section-main__title-container {
+        display: flex;
+        max-width: 600px;
+        padding-bottom: 350px;
+    }
+    
+    .section-main__title {
+        @extend %font-title;
+        font-size: 36pt;
+        color: $clr-text-light;
+    }
+
+    .section-main__info {
+        @extend  %font-light;
+        text-align: center;
+        color: $clr-text-light;
+        padding-bottom: 40px;
+    }
+
+    .section-main__button {
+        @extend .button-open-form;
+        margin: 0 auto;
+    }
 }
 
 .menu {
@@ -30,7 +84,7 @@
     display: flex;
     align-items: center;
 
-    &__list {
+    .menu__list {
         @include focus;
         display: flex;
         justify-content: center;
@@ -38,7 +92,8 @@
         gap: 10px 60px;
     }
 
-    &__list-item {
+    .menu__list-item {  
+        @include active;
         flex-shrink: 0;
         color: $clr-text-light;
     }
@@ -51,13 +106,15 @@
     align-items: center;
     gap: 12px;
 
-    &__number {
+    .menu-contacts__number {
+        @include active;
         flex-shrink: 0;
         font-size: 11pt;
     }
 
-    &__link {
+    .menu-contacts__link {
         @include active;
+        @include hover;
         display: flex;
         flex-shrink: 0;
         width: 32px;
@@ -66,55 +123,16 @@
     }
 }
 
-.section-main {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    position: relative;
-    background-image: url('images/bg/bg-section-main.png');
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    box-shadow: 0 0 32px $clr-image-shadow;
-    // min-height: 732px;
-    // min-width: 1200px;
+.section-directions {
+    .section-directions__title {
+        @extend .section-title;
+    }
 
-    &__header {
-        @extend %font-regular;
-        font-size: 12pt;
-        color: $clr-text-light;
+    .section-directions__cards {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         flex-wrap: wrap;
-        gap: 25px 90px;
-        padding: 50px 50px 28px 50px;
-    }
-
-    &__title-container {
-        display: flex;
-        padding-left: 50px;
-        max-width: 600px;
-    }
-    
-    &__title {
-        @extend %font-title;
-        font-size: 36pt;
-        color: $clr-text-light;
-    }
-
-    &__description {
-        @extend  %font-light;
-        padding: 350px 50px 0px 50px;
-        text-align: center;
-        color: $clr-text-light;
-    }
-
-    &__button {
-        @include select-off;
-        @extend .form-button;
-        height: 50px;
-        padding: 0px 40px;
-        margin: 40px auto;
+        gap: 75px;
     }
 }
 
@@ -139,12 +157,13 @@
         background: $clr-image-cover;
     }
 
-    &__image  {
+    .card__image  {
         object-fit: cover;
         position: absolute;
     }
 
-    &__title, &__text {
+    .card__title, 
+    .card__text {
         @extend %font-regular;
         text-align: center;
         text-shadow: 1px 1px 1px $clr-text-dark;
@@ -152,49 +171,35 @@
         z-index: 1;
     }
 
-    &__title {
+    .card__title {
         font-size: 20pt;
         line-height: 45px;
     }
 
-    &__text {
+    .card__text {
         font-size: 13pt;
         line-height: 30px;
     }
 }
 
-.section-directions {
-    &__title {
-        @extend .section-title;
-    }
-
-    &__cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 75px;
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
 .section-advantages {
-    &__title {
+    .section-advantages__title {
         @extend .section-title;
     }
 
-    &__inner {
+    .section-advantages__inner {
         display: flex;
         flex-direction: column;
         gap: 50px;
         padding: 0 75px;
     }
 
-    &__item {
+    .section-advantages__item {
         display: flex;
         gap: 50px;
     }
 
-    &__item-image {
+    .section-advantages__item-image {
         @include select-off;
         width: 120px;
         height: 120px;
@@ -202,12 +207,12 @@
         flex-shrink: 0;
     }
 
-    &__item-description {
+    .section-advantages__item-description {
         display: flex;
         flex-direction: column;
     }
 
-    &__item-title {
+    .section-advantages__item-title {
         @extend %font-light;
         color: $clr-text-dark;
         font-size: 14pt;
@@ -215,7 +220,7 @@
         padding-bottom: 25px;
     }
 
-    &__item-text {
+    .section-advantages__item-text {
         @extend %font-light;
         color: $clr-text-dark;
         font-size: 13pt;
@@ -223,21 +228,23 @@
     }
 }
 
+$faq-list-animation-speed: .3s;
+
 .section-faq {
-    &__title {
+    .section-faq__title {
         @extend .section-title;
     }
 
     .faq-list {
         padding: 0 75px 50px 75px;
 
-        &__ul {
+        .faq-list__ul {
             display: flex;
             flex-direction: column;
             min-width: 235px;
         }
 
-        &__li {
+        .faq-list__li {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -251,39 +258,40 @@
             }
         }
         
-        &__item {
+        .faq-list__item {
             @include select-off;
             display: flex;
             justify-content: space-between;
             height: 100%;
             cursor: pointer;
 
-            @include hover {
-                &:hover {
-                    .faq-list__btn-collapse {
+            &:hover {
+                @include hover-wrapper {
+                    .faq-list__btn-expand {
                         background-color: rgba($clr-text-dark, .15);
                     }
                 }
             }
+            
         }
 
-        &__title-container {
+        .faq-list__title-container {
             display: flex;
             justify-content: flex-start;
             align-items: center;
             width: 100%;
         }
 
-        &__title {
+        .faq-list__title {
             @extend %font-light;
             font-size: 20pt;
             color: $clr-text-dark;
             align-self: flex-start;
         }
 
-        &__btn-collapse {
+        .faq-list__btn-expand {
             color: $clr-text-dark;
-            background: transparent url('images/icon/icon-close.svg') center no-repeat;
+            background: transparent url('images/icon/icon-plus.svg') center no-repeat;
             pointer-events: none;
             display: flex;
             border-radius: 100px;
@@ -291,108 +299,108 @@
             flex-shrink: 0;
             width: 40px;
             height: 40px;
-            transition: transform .5s, height .5s, background-color .15s;
-
-            &_collapsed {
-                transform: rotate(45deg);
-            }
+            transition: transform $faq-list-animation-speed, height $faq-list-animation-speed, background-color .15s;
         }
 
-        &__content {
+        .faq-list__btn-expand_expanded {
+            transform: rotate(45deg);
+        }
+
+        .faq-list__content {
             @extend %font-light;
             font-size: 13pt;
             color: $clr-text-dark;
-            transition: .5s;
+            transition: $faq-list-animation-speed;
 
+            overflow: clip;
+            visibility: hidden;
+            height: 0;
+        }
+
+        .faq-list__content_expanded {
             visibility: visible;
             height: auto;
             overflow: clip;
-
-            &_collapsed {
-                // display: none;
-                visibility: hidden;
-                height: 0;
-            }
         }
 
-        &__description {
-            display: block;
+        .faq-list__text {
             padding-top: 25px;
         }
     }
 }
 
-.footer {
+.section-footer {
     display: flex;
     flex-direction: column;
     padding: 0 !important;
 
-    &__background {
+    .section-footer__image {
         flex-wrap: wrap;
         position: relative;
+
         background-image: url('images/bg/bg-section-footer.jpg');
         background-size: cover;
         background-position: bottom;
         background-repeat: no-repeat;
+
         height: 450px;
     }
 
-    &__inner {
+    .section-footer__inner {
         display: flex;
         flex-direction: row;
         height: 350px;
         box-shadow: 0 0 32px $clr-image-shadow;
     }
 
-    &__contacts {
+    .section-footer__contacts {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         flex-basis: 50%;
+
         justify-content: space-between;
         background-color: $clr-footer;
+
         height: 350px;
-        padding: 40px;
+        padding: 40px 25px;
     }
 
-    &__contacts-title {
+    .section-footer__contacts-title {
         @extend %font-title;
-        color: $clr-text-light;
-        letter-spacing: 1px;
         font-size: 26pt;
+        letter-spacing: 1px;
+        line-height: normal;
+        color: $clr-text-light;
         text-transform: none;
         margin: 0 auto;
     }
 
-    &__contacts-description {
+    .section-footer__contacts-info {
         @extend %font-light;
+        justify-content: flex-start;
+        font-size: 16pt;
+        color: $clr-text-light;
+
         display: flex;
         flex-direction: column;
         gap: 20px;
-        justify-content: flex-start;
-        color: $clr-text-light;
-        font-size: 16pt;
     }
 
-    &__map {
+    .menu-contacts {
+        justify-content: flex-start;
+    }
+
+    .section-footer__map {
         display: flex;
         flex-grow: 1;
         flex-basis: 50%;
         height: 350px;
 	}
 
-    .menu-contacts {
-        justify-content: flex-start;
-    }
-
 	.map {
 		width: 100%;
 		height: 100%;
-
-		&_default {
-			background: url('images/icon-img.svg') no-repeat center center;
-			background-color: transparent;
-		}
 	}
 }
 

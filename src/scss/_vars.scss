@@ -14,15 +14,31 @@ $clr-divider: rgb(231, 231, 231);
 
 $clr-footer: rgb(70, 70, 70);
 
-@mixin hover {
+
+@mixin hover-wrapper {
     @media (hover: hover) and (pointer: fine) {
         @content
     }
 }
 
 @mixin active {
+    & {
+        transition: .25s;
+    }
     &:active {
-        opacity: .85;
+        filter: hue-rotate(15deg) !important;
+    }
+}
+
+@mixin hover {
+    & {
+        transition: .25s;
+    }
+    &:hover {
+        @include hover-wrapper {
+            filter: brightness(1.1);
+            transform: scale(1.05);
+        }
     }
 }
 
@@ -43,6 +59,7 @@ $clr-footer: rgb(70, 70, 70);
     user-select: none;
 }
 
+
 %font-title {
     font-family: 'Bahnschrift';
     font-weight: 400;
@@ -61,6 +78,7 @@ $clr-footer: rgb(70, 70, 70);
     font-family: 'Segoe UI';
     font-weight: 100;
     letter-spacing: 1px;
+    // text-shadow: 0 0 1px $clr-text-light-hover;
 }
 
 %font-button {
