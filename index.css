@@ -557,7 +557,7 @@ a:link, a:visited {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .section-faq .faq-list .faq-list__item:hover .faq-list__btn-collapse {
+  .section-faq .faq-list .faq-list__item:hover .faq-list__btn-expand {
     background-color: rgba(60, 60, 60, 0.15);
   }
 }
@@ -582,9 +582,9 @@ a:link, a:visited {
       align-self: flex-start;
 }
 
-.section-faq .faq-list .faq-list__btn-collapse {
+.section-faq .faq-list .faq-list__btn-expand {
   color: #3c3c3c;
-  background: transparent url("images/icon/icon-close.svg") center no-repeat;
+  background: transparent url("images/icon/icon-plus.svg") center no-repeat;
   pointer-events: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -601,7 +601,7 @@ a:link, a:visited {
   transition: transform 0.3s, height 0.3s, background-color 0.15s, -webkit-transform 0.3s;
 }
 
-.section-faq .faq-list .faq-list__btn-collapse_collapsed {
+.section-faq .faq-list .faq-list__btn-expand_expanded {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
@@ -611,14 +611,15 @@ a:link, a:visited {
   color: #3c3c3c;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  overflow: clip;
+  visibility: hidden;
+  height: 0;
+}
+
+.section-faq .faq-list .faq-list__content_expanded {
   visibility: visible;
   height: auto;
   overflow: clip;
-}
-
-.section-faq .faq-list .faq-list__content_collapsed {
-  visibility: hidden;
-  height: 0;
 }
 
 .section-faq .faq-list .faq-list__text {
