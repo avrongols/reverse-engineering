@@ -129,6 +129,6 @@ if (document.querySelector('.map')) {
             map.getView().fit(layerSource.getExtent(), { padding: [20, 50, 20, 50], maxZoom: 15 });
         }
     } else {
-        document.querySelector('.footer__map').style.display = 'none';
+        document.querySelector('.section-footer__map').style.display = 'none';
     }
 }
