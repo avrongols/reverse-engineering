@@ -1,9 +1,26 @@
-$clr-white-text: white;
-$clr-white-text-hover: lightgray;
+$clr-white-text: rgb(255, 255, 255);
+$clr-white-text-hover: rgb(222, 222, 222);
+
 $clr-button: rgb(119, 188, 37);
+$clr-button-active: rgb(101, 175, 24);
 $clr-button-shadow: rgb(70, 111, 21);
+
 $clr-focus: rgb(0, 124, 158);
-$clr-background-cover: rgba(50, 50, 50, 0.4);
+$clr-image-cover: rgba(146, 150, 166, 0.65);
+$clr-image-shadow: rgb(62, 62, 62);
+
+@mixin active {
+    &:active {
+        opacity: .85;
+    }
+}
+
+@mixin focus {
+    &:focus {
+        outline: 3px solid $clr-focus;
+        outline-offset: 3px;
+    }
+}
 
 %font-title {
     font-family: 'Bahnschrift';
@@ -32,4 +49,8 @@ $clr-background-cover: rgba(50, 50, 50, 0.4);
     text-transform: uppercase;
     letter-spacing: 6px;
     color: $clr-white-text;
+}
+
+%image-shadow {
+    box-shadow: 0 0 32px $clr-image-shadow;
 }
