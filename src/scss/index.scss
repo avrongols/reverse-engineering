@@ -54,6 +54,10 @@
         padding-bottom: 28px;
     }
 
+    .section-main__menu-contacts {
+        justify-content: center;
+    }
+
     .section-main__title-container {
         display: flex;
         max-width: 600px;
@@ -80,7 +84,6 @@
 }
 
 .menu {
-    @include select-off;
     display: flex;
     align-items: center;
 
@@ -100,9 +103,7 @@
 }
 
 .menu-contacts {
-    @include select-off;
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 12px;
 
@@ -113,6 +114,7 @@
     }
 
     .menu-contacts__link {
+        @include select-off;
         @include active;
         @include hover;
         display: flex;
@@ -158,6 +160,7 @@
     }
 
     .card__image  {
+        @include select-off;
         object-fit: cover;
         position: absolute;
     }
@@ -235,9 +238,11 @@ $faq-list-animation-speed: .3s;
         @extend .section-title;
     }
 
-    .faq-list {
+    .section-faq__faq-list {
         padding: 0 75px 50px 75px;
+    }
 
+    .faq-list {
         .faq-list__ul {
             display: flex;
             flex-direction: column;
@@ -259,7 +264,7 @@ $faq-list-animation-speed: .3s;
         }
         
         .faq-list__item {
-            @include select-off;
+            // @include select-off;
             display: flex;
             justify-content: space-between;
             height: 100%;
@@ -284,7 +289,8 @@ $faq-list-animation-speed: .3s;
 
         .faq-list__title {
             @extend %font-light;
-            font-size: 20pt;
+            font-size: 20pt !important;
+            font-weight: 400;
             color: $clr-text-dark;
             align-self: flex-start;
         }
@@ -308,7 +314,7 @@ $faq-list-animation-speed: .3s;
 
         .faq-list__content {
             @extend %font-light;
-            font-size: 13pt;
+            font-size: 16pt;
             color: $clr-text-dark;
             transition: $faq-list-animation-speed;
 
@@ -325,6 +331,92 @@ $faq-list-animation-speed: .3s;
 
         .faq-list__text {
             padding-top: 25px;
+        }
+    }
+}
+
+.section-prices {
+    @extend %font-light;
+    margin-top: 50px;
+
+    .section-prices__inner {
+        display: flex;
+        flex-direction: column;
+        border: 3px solid $clr-accent;
+        border-radius: 50px;
+        background-color: $clr-bg;
+        padding: 50px 25px 50px 25px;
+        margin: 0px 25px;
+    }
+
+    .section-prices__title {
+        @extend .section-title;
+        margin: 0;
+        padding-bottom: 50px;
+    }
+
+    .section-prices__prices-table {
+        padding-bottom: 50px;
+    }
+
+    .section-prices__button {
+        @extend .button-open-form;
+        margin: 0 auto;
+    }
+}
+
+.prices-table {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .prices-table__row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .prices-table__col-name,
+    .prices-table__col-list,
+    .prices-table__col-price
+     {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    .prices-table__col-name {
+        flex-basis: 30%;
+        font-size: 20pt;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    .prices-table__col-list {
+        display: flex;
+        flex-basis: 40%;
+        flex-grow: 1;
+
+        list-style-type: '— ';
+        padding-left: 2rem
+    }
+
+    .prices-table__col-price {
+        display: flex;
+        flex-basis: 10%;
+        white-space: nowrap;
+
+        .prices-table__text-price,
+        .prices-table__text-time {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .prices-table__text-price {
+            font-size: 20pt;
+            font-weight: 400;
         }
     }
 }
@@ -363,7 +455,7 @@ $faq-list-animation-speed: .3s;
         background-color: $clr-footer;
 
         height: 350px;
-        padding: 40px 25px;
+        padding: 40px 40px;
     }
 
     .section-footer__contacts-title {
@@ -387,7 +479,7 @@ $faq-list-animation-speed: .3s;
         gap: 20px;
     }
 
-    .menu-contacts {
+    .section-footer__menu-contacts {
         justify-content: flex-start;
     }
 

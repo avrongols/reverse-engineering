@@ -17,9 +17,20 @@
         }
     }
 
+    .section-prices {
+        .prices-table {
+            .prices-table__col-name {
+                flex-basis: 100%;
+            }
+        }
+    }
+
     .section-footer {
         .section-footer__inner {
             flex-wrap: wrap;
+        }
+        .section-footer__contacts {
+            padding: 40px 25px;
         }
         .section-footer__contacts-title {
             font-size: 22pt;
@@ -49,6 +60,7 @@
             justify-content: center;
             gap: 10px 20px;
         }
+
         .menu-contacts {
             flex-grow: 1;
         }
@@ -58,29 +70,49 @@
         .section-advantages__inner {
             padding: 0 25px;
         }
-
         .section-advantages__item {
             flex-wrap: wrap;
             gap: 25px;
             justify-content: center;
         }
-
         .section-advantages__item-description {
             justify-content: center;
             text-align: center;
         }
-
         .section-advantages__item-text {
             line-height: 25px;
+        }
+    }
+
+    .section-prices {
+        .section-prices__inner {
+            margin: 0px;
+        }
+        .section-prices__button {
+            height: 75px;
+        }
+
+        .prices-table {
+            gap: 50px;
+
+            .prices-table__col-name,
+            .prices-table__col-list,
+            .prices-table__col-price {
+                flex-basis: 100%;
+                * {
+                    justify-content: flex-start !important;
+                }
+            }
         }
     }
 
     .section-faq {
         .faq-list {
             padding: 0 25px;
-        }
-        .faq-list__title {
-            font-size: 16pt !important;
+
+            .faq-list__title {
+                font-size: 16pt !important;
+            }
         }
     }
 }
@@ -88,10 +120,18 @@
 @media screen and (max-width: 435px) {
     .section-main {
         padding-top: 25px;
+
         .menu__list {
             justify-content: space-between;
             gap: 10px 70px;
             padding: 0 30px;
+        }
+    }
+
+    .section-footer {
+        .section-footer__contacts,
+        .section-footer__map {
+            min-width: 100%;
         }
     }
 }
