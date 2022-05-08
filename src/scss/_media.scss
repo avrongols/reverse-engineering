@@ -134,4 +134,11 @@
             min-width: 100%;
         }
     }
+
+    .dropdown {
+        .dropdown__content {
+            left: none;
+            right: -.5rem;
+        }
+    }
 }

@@ -97,6 +97,7 @@
 
     .menu__list-item {  
         @include active;
+        @extend %font-regular;
         flex-shrink: 0;
         color: $clr-text-light;
     }
@@ -494,6 +495,68 @@ $faq-list-animation-speed: .3s;
 		width: 100%;
 		height: 100%;
 	}
+}
+
+$dropdown-border: 16px;
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    .dropdown__open-link::after {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 45%;
+        right: -.5rem;
+        border-style: solid;
+        border-width: 4px 3px 0 3px;
+        transform: translateY(-50%);
+        border-color: transparent transparent transparent transparent;
+        border-top-color: inherit;
+    }
+
+    .dropdown__content {
+        display: none;
+        position: absolute;
+        min-width: 175px;
+        background-color: $clr-text-light;
+        box-shadow: 0px 8px 16px 0px $clr-image-shadow;
+        border-radius: $dropdown-border;
+        z-index: 1;
+    
+        .dropdown__link {
+            @extend %font-regular;
+            letter-spacing: 0;
+            display: block;
+            text-decoration: none;
+            color: $clr-text-dark;
+            padding: 12px 16px;
+            
+            &:first-child {
+                border-radius: $dropdown-border $dropdown-border 0 0;
+            }
+
+            &:last-child {
+                border-radius: 0 0 $dropdown-border $dropdown-border;
+            }
+
+            &:hover {
+                background-color: $clr-text-light-hover;
+            }
+        }
+    }
+
+    &:hover {
+        .dropdown__content {
+            display: block;
+        }
+        
+        .dropdown__open-link {
+            color: $clr-text-light-hover;
+        }
+    }
 }
 
 @import 'media';
