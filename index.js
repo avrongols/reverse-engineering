@@ -122,3 +122,128 @@ if (document.querySelector('.map')) {
         document.querySelector('.section-footer__map').style.display = 'none';
     }
 }
+if (document.querySelector(".lightbox__modal")) {
+
+    const modal = document.querySelector(".lightbox__modal");
+    const modalContent = document.querySelector(".lightbox__modal-content");
+    const btnClose = document.querySelector(".lightbox__btn-close");
+    const btnPrev = document.querySelector(".lightbox__btn-prev");
+    const btnNext = document.querySelector(".lightbox__btn-next");
+
+    const previews = document.querySelectorAll(".button-open-form");
+    const slides = document.querySelectorAll(".lightbox__slide");
+
+    let currentSlideIndex;
+    let element, bbox, startX, deltaX, raf;
+
+    function isModalActive() {
+        return modal.classList.contains('lightbox__modal_active');
+    }
+
+    function openModal() {
+        modal.classList.add('lightbox__modal_active');
+    }
+
+    function closeModal() {
+        modal.classList.remove('lightbox__modal_active');
+        slides[currentSlideIndex].classList.remove('lightbox__slide_active');
+    }
+
+    function setCurrentSlide(n) {
+        showSlides(currentSlideIndex = n);
+    }
+
+    function plusCurrentSlide(n) {
+        if (slides.length > 1) {
+            showSlides(currentSlideIndex += n);
+        } else {
+            closeModal();
+        }
+    }
+
+    function showSlides(n) {
+        if (n > slides.length - 1) { currentSlideIndex = 0 }
+        if (n < 0) { currentSlideIndex = slides.length - 1 }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove('lightbox__slide_active');
+        }
+        slides[currentSlideIndex].classList.add('lightbox__slide_active');
+    }
+
+    previews.forEach((preview, i) => {
+        preview.addEventListener('click', () => {
+            openModal();
+            setCurrentSlide(i);
+        });
+    });
+
+    slides.forEach(slide => {
+        slide.ondragstart = () => { return false };
+    })
+
+    btnClose.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+        if (isModalActive() && e.key === "Escape") {
+            closeModal();
+        }
+    });
+
+    btnPrev.addEventListener('click', () => { plusCurrentSlide(-1) });
+    document.addEventListener('keydown', function(e) {
+        if (isModalActive() && e.key === "ArrowLeft") {
+            plusCurrentSlide(-1);
+        }
+    });
+
+    btnNext.addEventListener('click', () => { plusCurrentSlide(1) });
+    document.addEventListener('keydown', function(e) {
+        if (isModalActive() && e.key === "ArrowRight") {
+            plusCurrentSlide(1);
+        }
+    });
+
+    function userPressed(e) {
+        element = e.target;
+        if (element.classList.contains('lightbox__slide')) {
+            startX = e.clientX;
+            bbox = element.getBoundingClientRect();
+            modalContent.addEventListener('pointermove', userMoved, { passive: true });
+            modalContent.addEventListener('pointerup', userReleased, { passive: true });
+            modalContent.addEventListener('pointercancel', userReleased, { passive: true });
+        };
+    };
+      
+    function userMoved(e) {
+        if (!raf) {
+            deltaX = e.clientX - startX;
+            raf = requestAnimationFrame(userMovedRaf);
+        }
+    };
+      
+    function userMovedRaf() {
+        element.style.transform = "translate3d(" + deltaX + "px, 0px, 0px)";
+        raf = null;
+    };
+      
+    function userReleased() {
+        modalContent.removeEventListener('pointermove', userMoved);
+        modalContent.removeEventListener('pointerup', userReleased);
+        modalContent.removeEventListener('pointercancel', userReleased);
+        if (raf) {
+            cancelAnimationFrame(raf);
+            raf = null;
+        };
+        element.style.left = bbox.left + deltaX + "px";
+        element.style.transform = "translate3d(0px, 0px, 0px)";
+        if (Math.abs(deltaX) > 50) {
+            if (deltaX > 0) {
+                plusCurrentSlide(-1);
+            } else {
+                plusCurrentSlide(1);
+            }
+        }
+        deltaX = null;
+    };
+
+    modalContent.addEventListener('pointerdown', userPressed, { passive: true });
+}
