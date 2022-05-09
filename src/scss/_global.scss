@@ -15,9 +15,7 @@ a {
 ::-webkit-selection {background: $clr-accent; color: $clr-text-light;}
 
 :focus-visible {
-	outline: 3px solid $clr-accent;
-	outline-offset: 3px;
-	border-radius: 5px;
+	@include focus;
 }
 
 .wrapper {

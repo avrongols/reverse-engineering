@@ -43,6 +43,14 @@ $clr-footer: rgb(70, 70, 70);
     }
 }
 
+@mixin focus {
+    &:focus {
+        outline: 3px solid $clr-accent;
+        outline-offset: 3px;
+        border-radius: 5px;
+    }
+}
+
 @mixin select-off {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
