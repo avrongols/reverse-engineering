@@ -27,7 +27,7 @@
     background-position: top;
     background-repeat: no-repeat;
 
-    box-shadow: 0 0 32px $clr-image-shadow;
+    box-shadow: 0 0 32px $clr-shadow;
     padding: 50px 65px 40px 65px;
 
     .section-main__header {
@@ -148,7 +148,7 @@
     height: 300px;
     pointer-events: none;
     justify-content: center;
-    box-shadow: 4px 4px 8px $clr-image-shadow;
+    box-shadow: 4px 4px 8px $clr-shadow;
 
     &::after {
         content: "";
@@ -158,7 +158,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: $clr-image-cover;
+        background: $clr-card-cover;
     }
 
     .card__image  {
@@ -250,16 +250,16 @@ $faq-list-animation-speed: .3s;
             justify-content: space-between;
             height: auto;
             width: 100%;
-            border-bottom: 1px solid $clr-divider;
+            border-bottom: 1px solid $clr-list-divider;
             padding: 25px 0;
 
             &:first-child {
-                border-top: 1px solid $clr-divider;
+                border-top: 1px solid $clr-list-divider;
             }
         }
         
         .faq-list__item {
-            // @include select-off;
+            @include select-off;
             display: flex;
             justify-content: space-between;
             height: 100%;
@@ -340,7 +340,7 @@ $faq-list-animation-speed: .3s;
         flex-direction: column;
         border: 3px solid $clr-accent;
         border-radius: 50px;
-        background-color: $clr-bg;
+        background-color: $clr-price-section-bg;
         padding: 50px 25px 50px 25px;
         margin: 0px 25px;
     }
@@ -436,7 +436,7 @@ $faq-list-animation-speed: .3s;
         display: flex;
         flex-direction: row;
         height: 350px;
-        box-shadow: 0 0 32px $clr-image-shadow;
+        box-shadow: 0 0 32px $clr-shadow;
     }
 
     .section-footer__contacts {
@@ -446,7 +446,7 @@ $faq-list-animation-speed: .3s;
         flex-basis: 50%;
 
         justify-content: space-between;
-        background-color: $clr-footer;
+        background-color: $clr-footer-bg;
 
         height: 350px;
         padding: 40px 40px;
@@ -515,7 +515,7 @@ $dropdown-border: 16px;
         position: absolute;
         min-width: 175px;
         background-color: $clr-text-light;
-        box-shadow: 0px 8px 16px 0px $clr-image-shadow;
+        box-shadow: 0px 8px 16px 0px $clr-shadow;
         border-radius: $dropdown-border;
         z-index: 1;
     
@@ -616,7 +616,7 @@ $dropdown-border: 16px;
         width: 760px;
         z-index: 2;
 
-        background-color: white;
+        background-color: $clr-modal-bg;
         border-radius: 20px;
         margin: auto;
 	}
@@ -683,7 +683,7 @@ $dropdown-border: 16px;
             cursor: pointer;
         }
 
-        .modal__input-files:focus + label {
+        .modal__input-files:focus-visible + label {
             // @include focus;
             outline: 3px solid $clr-accent;
             outline-offset: 3px;

@@ -6,15 +6,16 @@ $clr-button: rgb(119, 188, 37);
 $clr-button-active: rgb(101, 175, 24);
 $clr-button-shadow: rgb(70, 111, 21);
 
-$clr-image-cover: rgba(146, 150, 166, 0.65);
-$clr-image-shadow: rgb(62, 62, 62);
-
 $clr-accent: rgb(0, 124, 158);
 $clr-error: rgb(204, 61, 63);
+$clr-shadow: rgb(62, 62, 62);
 
-$clr-bg: rgb(250, 250, 250);
-$clr-footer: rgb(70, 70, 70);
-$clr-divider: rgb(231, 231, 231);
+$clr-card-cover: rgba(146, 150, 166, 0.65);
+$clr-list-divider: rgb(231, 231, 231);
+$clr-price-section-bg: rgb(250, 250, 250);
+$clr-footer-bg: rgb(70, 70, 70);
+$clr-modal-bg: rgb(255, 255, 255);
+
 
 @mixin hover-wrapper {
     @media (hover: hover) and (pointer: fine) {
