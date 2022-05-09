@@ -711,4 +711,14 @@ $dropdown-border: 16px;
     }
 }
 
+.error {
+    @extend %font-light;
+    color: $clr-error;
+    padding-left: 20px;
+}
+
+.modal__input.error {
+    background-color: rgba($clr-error, 0.05);
+}
+
 @import 'media';
