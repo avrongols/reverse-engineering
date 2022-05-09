@@ -538,6 +538,12 @@ a:link, a:visited {
 }
 
 .section-faq .faq-list .faq-list__item {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1060,7 +1066,7 @@ a:link, a:visited {
   cursor: pointer;
 }
 
-.modal .modal__files .modal__input-files:focus + label {
+.modal .modal__files .modal__input-files:focus-visible + label {
   outline: 3px solid #007c9e;
   outline-offset: 3px;
   border-radius: 5px;
