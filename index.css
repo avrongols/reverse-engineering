@@ -1063,7 +1063,8 @@ a:link, a:visited {
 
 .modal .modal__info {
   text-align: center;
-  margin: 0 50px 50px 50px;
+  margin: 0 50px;
+  padding-bottom: 50px;
 }
 
 @media screen and (max-width: 972px) {
