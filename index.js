@@ -17,7 +17,7 @@ if (document.querySelector('.faq-list')) {
         }
     }
 
-    function onItemClick(item) {
+    const onItemClick = (item) => {
         let button = item.querySelector('.faq-list__btn-expand');
         let contentToExpand = item.nextElementSibling;
 
@@ -155,7 +155,7 @@ if (document.querySelector(".modal")) {
             closeModal();
         }
     });
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', (e) => {
         if (isModalActive() && e.key === "Escape") {
             closeModal();
         }
@@ -187,5 +187,33 @@ if (document.querySelector(".modal")) {
     	});
     });
 
-    
+    // Отправка ajax запроса по URL из атрибута формы action
+    $(function() {
+        $('#form').on('submit', function(e) {
+            e.preventDefault();
+
+            let $that = $(this);
+            let actionUrl = $that.attr('action');
+            let formData = new FormData($that.get(0));
+
+            $.ajax({
+                url: actionUrl,
+                method: 'POST',
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: (json) => {
+                    if (json) {
+                        alert('Данные успешно отправлены.');
+                    }
+                },
+                error: (json) => {
+                    if (json) {
+                        alert('Ошибка. Данные не отправлены.');
+                    }
+                }
+            });
+        });
+    });
 }
