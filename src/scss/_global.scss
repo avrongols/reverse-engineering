@@ -8,11 +8,6 @@ a {
 	&:visited {
 		color: $clr-text-light;
 	}
-	&:hover {
-		@include hover-wrapper {
-			color: $clr-text-light-hover;
-		}
-	}
 }
 
 ::selection {background: $clr-accent; color: $clr-text-light;}

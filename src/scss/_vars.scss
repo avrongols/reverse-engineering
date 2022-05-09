@@ -24,7 +24,7 @@ $clr-footer: rgb(70, 70, 70);
 
 @mixin active {
     & {
-        transition: .25s;
+        transition: .25s filter linear, .25s -webkit-filter linear;
     }
     &:active {
         filter: hue-rotate(15deg) !important;
@@ -33,20 +33,13 @@ $clr-footer: rgb(70, 70, 70);
 
 @mixin hover {
     & {
-        transition: .25s;
+        transition: transform .25s;
     }
     &:hover {
         @include hover-wrapper {
             filter: brightness(1.1);
             transform: scale(1.05);
         }
-    }
-}
-
-@mixin focus {
-    &:focus {
-        outline: 3px solid $clr-accent;
-        outline-offset: 3px;
     }
 }
 
@@ -66,7 +59,7 @@ $clr-footer: rgb(70, 70, 70);
     font-weight: 400;
     letter-spacing: 5px;
     text-transform: uppercase;
-    line-height: 60px;
+    line-height: normal;
 }
 
 %font-regular {
@@ -88,4 +81,19 @@ $clr-footer: rgb(70, 70, 70);
     text-transform: uppercase;
     letter-spacing: 6px;
     color: $clr-text-light;
+}
+
+%button {
+    @include select-off;
+    @include active;
+    @include hover;
+	@extend %font-button;
+    align-items: center;
+    height: 50px;
+    padding: 0px 40px;
+    border-radius: 20px !important;
+    color: $clr-text-light;
+	background-color: $clr-button;
+	box-shadow: 5px 5px 5px $clr-button-shadow;
+	cursor: pointer;
 }

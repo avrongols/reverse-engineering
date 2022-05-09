@@ -4,7 +4,7 @@
 @import 'libs';
 @import 'global';
 
-.section-title {
+.title-section {
     @extend %font-title;
     font-size: 21pt;
     text-align: center;
@@ -13,18 +13,7 @@
 }
 
 .button-open-form {
-    @include select-off;
-    @include active;
-    @include hover;
-	@extend %font-button;
-    align-items: center;
-    height: 50px;
-    padding: 0px 40px;
-    border-radius: 20px;
-    color: $clr-text-light;
-	background-color: $clr-button;
-	box-shadow: 5px 5px 5px $clr-button-shadow;
-	cursor: pointer;
+	@extend %button;
 }
 
 .section-main {
@@ -66,6 +55,7 @@
     
     .section-main__title {
         @extend %font-title;
+        line-height: 60px;
         font-size: 36pt;
         color: $clr-text-light;
     }
@@ -78,7 +68,6 @@
     }
 
     .section-main__button {
-        @extend .button-open-form;
         margin: 0 auto;
     }
 }
@@ -88,18 +77,27 @@
     align-items: center;
 
     .menu__list {
-        @include focus;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 10px 60px;
     }
 
-    .menu__list-item {  
-        @include active;
+    .menu__list-item {
         @extend %font-regular;
         flex-shrink: 0;
         color: $clr-text-light;
+    }
+
+    .menu__list-link {
+        transition: color .2s;
+
+        &:hover,
+        &:focus {
+            @include hover-wrapper {
+                color: $clr-text-light-hover;
+            }
+        }
     }
 }
 
@@ -109,9 +107,16 @@
     gap: 12px;
 
     .menu-contacts__number {
-        @include active;
         flex-shrink: 0;
         font-size: 11pt;
+        transition: color .2s;
+
+        &:hover,
+        &:focus {
+            @include hover-wrapper {
+                color: $clr-text-light-hover;
+            }
+        }
     }
 
     .menu-contacts__link {
@@ -127,10 +132,6 @@
 }
 
 .section-directions {
-    .section-directions__title {
-        @extend .section-title;
-    }
-
     .section-directions__cards {
         display: flex;
         justify-content: center;
@@ -187,10 +188,6 @@
 }
 
 .section-advantages {
-    .section-advantages__title {
-        @extend .section-title;
-    }
-
     .section-advantages__inner {
         display: flex;
         flex-direction: column;
@@ -227,6 +224,7 @@
     .section-advantages__item-text {
         @extend %font-light;
         color: $clr-text-dark;
+        letter-spacing: 0;
         font-size: 13pt;
         line-height: 35px;
     }
@@ -235,10 +233,6 @@
 $faq-list-animation-speed: .3s;
 
 .section-faq {
-    .section-faq__title {
-        @extend .section-title;
-    }
-
     .section-faq__faq-list {
         padding: 0 75px 50px 75px;
     }
@@ -351,7 +345,6 @@ $faq-list-animation-speed: .3s;
     }
 
     .section-prices__title {
-        @extend .section-title;
         margin: 0;
         padding-bottom: 50px;
     }
@@ -361,7 +354,6 @@ $faq-list-animation-speed: .3s;
     }
 
     .section-prices__button {
-        @extend .button-open-form;
         margin: 0 auto;
     }
 }
@@ -463,7 +455,6 @@ $faq-list-animation-speed: .3s;
         @extend %font-title;
         font-size: 26pt;
         letter-spacing: 1px;
-        line-height: normal;
         color: $clr-text-light;
         text-transform: none;
         margin: 0 auto;
@@ -504,6 +495,7 @@ $dropdown-border: 16px;
     display: inline-block;
 
     .dropdown__open-link::after {
+        @include select-off;
         content: '';
         width: 0;
         height: 0;
@@ -548,7 +540,7 @@ $dropdown-border: 16px;
         }
     }
 
-    &:hover {
+    &:hover, &:focus {
         .dropdown__content {
             display: block;
         }
@@ -557,6 +549,152 @@ $dropdown-border: 16px;
             color: $clr-text-light-hover;
         }
     }
+}
+
+.modal {
+	display: flex;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;		
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease-in-out;
+	width: 100%;
+	height: 100%;
+    overflow: auto;
+
+	&_active {
+		opacity: 1;
+		visibility: visible;
+	}
+
+    .modal__btn-close {
+        @include select-off;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		color: white;		
+		font-size: 35px;
+		font-weight: 700;
+        line-height: 15pt;
+		border-radius: 10px;
+		transition: background-color 0.3s ease;
+		padding: 16px;
+		margin: 7px;
+
+		&:hover, &:focus {
+			text-decoration: none;
+			background-color: rgba(255, 255, 255, 0.15);
+			cursor: pointer;
+		}
+
+		&:after {
+			content: '×' !important;
+		}
+	}
+
+    .modal__content {
+		display: flex;
+        flex-direction: column;
+        margin: auto;
+        top: 0;
+        position: relative;
+        left: auto;
+        right: auto;
+        background-color: white;
+        z-index: 2;
+        width: 760px;
+        border-radius: 20px;
+	}
+
+    .modal__title {
+        @extend .title-section;
+        color: $clr-text-dark;
+        margin: 50px;
+    }
+
+    .modal__form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin: 0 50px 25px 50px;
+
+        .modal__input {
+            @extend %font-light;
+            letter-spacing: 0;
+            color: $clr-text-dark;
+            border: none;
+            box-shadow: 2px 2px 4px $clr-text-dark;
+            border-radius: 20px;
+            height: 55px;
+            padding: 0 20px;
+            font-size: 16px;
+            width: 100%;
+            transition: .25s;
+
+            &:focus-visible {
+                outline: 0;
+                box-shadow: 2px 2px 8px $clr-text-dark;
+            }
+
+            &:last-of-type {
+                margin-bottom: 25px;
+            }
+        }
+    }
+
+    .modal__files {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+
+        .modal__input-files {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .modal__input-files + label {
+            @extend %button;
+            display: flex;
+            justify-content: center;
+            white-space: nowrap;
+            flex-basis: 25%;
+            cursor: pointer;
+        }
+
+        .modal__files-info {
+            @extend %font-light;
+            text-align: center;
+            font-size: 14pt;
+            margin: auto;
+            padding: 0 25px;
+        }
+    }
+
+    .modal__button-send {
+        @extend %button;
+    }
+
+    .modal__info {
+        @extend %font-light;
+        text-align: center;
+        margin: 0 50px 50px 50px;
+    }
+
+    // .modal__button-send,
+    // .modal__button-add-files {
+    //     &:focus-visible {
+    //         outline: 0;
+    //         box-shadow: 7px 7px 7px $clr-button-shadow;
+    //     }
+    // }
 }
 
 @import 'media';
