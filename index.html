@@ -25,13 +25,13 @@
                             </a>
                         </li>
                         <li class="menu__list-item">
-                            <div class="dropdown">
+                            <div class="dropdown" tabindex="0">
                                 <a class="menu__list-link dropdown__open-link">
                                     Услуги
                                 </a>
                                 <div class="dropdown__content">
                                     <a class="dropdown__link" href="#">
-                                        Реверс-инжиниринг
+                                        Реверс-инжиниринг               
                                     </a>
                                     <a class="dropdown__link" href="#">
                                         3D моделирование
@@ -89,7 +89,7 @@
         </section>
 
         <section class="section-directions container">
-            <h2 class="section-directions__title">
+            <h2 class="section-directions__title title-section">
                 Основные направления нашей деятельности
             </h2>
             <div class="section-directions__cards">
@@ -124,7 +124,7 @@
         </section>
 
         <section class="section-advantages container">
-            <h2 class="section-advantages__title">
+            <h2 class="section-advantages__title title-section">
                 Наши преимущества
             </h2>
             <div class="section-advantages__inner">
@@ -199,7 +199,7 @@
 
         <section class="section-prices container">
             <div class="section-prices__inner">
-                <h2 class="section-prices__title">
+                <h2 class="section-prices__title title-section">
                     Цены на реверс-инжиниринг и 3D сканирование
                 </h2>
                 <div class="section-prices__prices-table prices-table">
@@ -270,7 +270,7 @@
         </section>
 
         <section class="section-faq container">
-            <h2 class="section-faq__title">
+            <h2 class="section-faq__title title-section">
                 Часто задаваемые вопросы
             </h2>
             <div class="section-faq__faq-list faq-list">
@@ -378,12 +378,39 @@
             </div>
         </section>
 
-        <div class="lightbox__modal" aria-hidden="true">
-            <div class="lightbox__modal-content">
+        <div class="modal">
+            <div class="modal__content">
+                <h2 class="modal__title">
+                    Отправьте заявку для расчета
+                </h2>
+                <form class="modal__form" type="text" >
+                    <input type="text" placeholder="Меня зовут" class="modal__input">
+                    <input type="email" placeholder="E-mail" class="modal__input">
+                    <input type="tel" placeholder="+7 999 999 99 99" class="modal__input">
+                    <input type="text" placeholder="Комментарий" class="modal__input">
+                    <div class="modal__files">
+                        <!-- <button class="modal__button-add-files" type="file">
+                            Прикрепить
+                        </button> -->
+
+                        <input class="modal__input-files" type="file" name="file" id="file" data-multiple-caption="Прикреплено: {count}" multiple />
+                        <label class="modal__input-files-label" for="file">
+                            Прикрепить
+                        </label>
+                        
+                        <p class="modal__files-info">
+                            ТЗ, ТУ и всё то, что поможет нам оценить объём работ
+                        </p>
+                    </div>
+                    <button class="modal__button-send" type="submit">
+                        Отправить
+                    </button>
+                </form>
+                <p class="modal__info">
+                    Мы не передаем данные третьим лицам и не рассылаем рекламу
+                </p>
             </div>
-            <span class="lightbox__btn-close"></span>
-            <a class="lightbox__btn-prev"></a>
-            <a class="lightbox__btn-next"></a>
+            <span class="modal__btn-close"></span>
         </div>
     </main>
     <!-- <footer class="footer"></footer> -->
