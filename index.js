@@ -161,6 +161,7 @@ if (document.querySelector(".modal")) {
         }
     });
 
+    // Динамическое отображение количества прикреплённых файлов
     let inputs = document.querySelectorAll('.modal__input-files');
         Array.prototype.forEach.call(inputs, function(input) {
             let label = input.nextElementSibling,
@@ -178,7 +179,6 @@ if (document.querySelector(".modal")) {
             //     fileName = e.target.value.split("\\").pop();
             //     label.style.whiteSpace = 'normal';
             // }
-
     		if (fileName) {
                 label.innerHTML = fileName;
             } else {
@@ -186,4 +186,6 @@ if (document.querySelector(".modal")) {
             }
     	});
     });
+
+    
 }

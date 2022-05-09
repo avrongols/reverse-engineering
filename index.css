@@ -160,7 +160,7 @@ a:link, a:visited {
   color: white;
 }
 
-:focus-visible {
+:focus-visible:focus {
   outline: 3px solid #007c9e;
   outline-offset: 3px;
   border-radius: 5px;
@@ -576,6 +576,12 @@ a:link, a:visited {
 }
 
 .section-faq .faq-list .faq-list__btn-expand {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   color: #3c3c3c;
   background: transparent url("images/icon/icon-plus.svg") center no-repeat;
   pointer-events: none;
@@ -911,23 +917,23 @@ a:link, a:visited {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  opacity: 0;
-  visibility: hidden;
   position: fixed;
   left: 0;
   top: 0;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .modal_active {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
 }
 
 .modal .modal__btn-close {
@@ -945,10 +951,10 @@ a:link, a:visited {
   font-weight: 700;
   line-height: 15pt;
   border-radius: 10px;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
   padding: 16px;
   margin: 7px;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .modal .modal__btn-close:hover, .modal .modal__btn-close:focus {
@@ -969,15 +975,15 @@ a:link, a:visited {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: auto;
-  top: 0;
   position: relative;
+  top: 0;
   left: auto;
   right: auto;
-  background-color: white;
-  z-index: 2;
   width: 760px;
+  z-index: 2;
+  background-color: white;
   border-radius: 20px;
+  margin: auto;
 }
 
 .modal .modal__title {
@@ -999,15 +1005,15 @@ a:link, a:visited {
 
 .modal .modal__form .modal__input {
   letter-spacing: 0;
+  font-size: 16px;
   color: #3c3c3c;
-  border: none;
   -webkit-box-shadow: 2px 2px 4px #3c3c3c;
           box-shadow: 2px 2px 4px #3c3c3c;
+  border: none;
   border-radius: 20px;
+  width: 100%;
   height: 55px;
   padding: 0 20px;
-  font-size: 16px;
-  width: 100%;
   -webkit-transition: .25s;
   transition: .25s;
 }
@@ -1033,11 +1039,11 @@ a:link, a:visited {
 }
 
 .modal .modal__files .modal__input-files {
+  position: absolute;
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
   overflow: hidden;
-  position: absolute;
   z-index: -1;
 }
 
@@ -1052,6 +1058,12 @@ a:link, a:visited {
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   cursor: pointer;
+}
+
+.modal .modal__files .modal__input-files:focus + label {
+  outline: 3px solid #007c9e;
+  outline-offset: 3px;
+  border-radius: 5px;
 }
 
 .modal .modal__files .modal__files-info {
@@ -1209,10 +1221,8 @@ a:link, a:visited {
     right: -.5rem;
   }
   .modal .modal__content {
-    margin: 68px 0 0 0;
+    margin: 68px 0 auto 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    width: 100%;
-    height: 100%;
   }
 }
