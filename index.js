@@ -187,15 +187,39 @@ if (document.querySelector(".modal")) {
     	});
     });
 
-    // Отправка ajax запроса по URL из атрибута формы action
+    // Валидация и отправка ajax запроса (URL берётся из атрибута action, заданного для формы)
     $(function() {
-        $('#form').on('submit', function(e) {
-            e.preventDefault();
-
-            let $that = $(this);
+        $('#form').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 3
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: "Пожалуйста, введите имя",
+                email: {
+                    required: "Пожалуйста, введите email",
+                    email: "Введённый email некорректен"
+                }
+            },
+            focusInvalid: true,
+            errorClass: "error",
+            submitHandler: function(form) {
+                sendForm(form);
+                return false;
+            }
+        });
+        
+        function sendForm(form) {
+            let $that = $(form);
             let actionUrl = $that.attr('action');
             let formData = new FormData($that.get(0));
-
+        
             $.ajax({
                 url: actionUrl,
                 method: 'POST',
@@ -214,6 +238,6 @@ if (document.querySelector(".modal")) {
                     }
                 }
             });
-        });
+        }
     });
 }

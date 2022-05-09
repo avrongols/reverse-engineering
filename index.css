@@ -14,7 +14,7 @@
   letter-spacing: 1px;
 }
 
-.section-main .section-main__info, .section-advantages .section-advantages__item-title, .section-advantages .section-advantages__item-text, .section-faq .faq-list .faq-list__title, .section-faq .faq-list .faq-list__content, .section-prices, .section-footer .section-footer__contacts-info, .modal .modal__form .modal__input, .modal .modal__files .modal__files-info, .modal .modal__info {
+.section-main .section-main__info, .section-advantages .section-advantages__item-title, .section-advantages .section-advantages__item-text, .section-faq .faq-list .faq-list__title, .section-faq .faq-list .faq-list__content, .section-prices, .section-footer .section-footer__contacts-info, .modal .modal__form .modal__input, .modal .modal__files .modal__files-info, .modal .modal__info, .error {
   font-family: 'Segoe UI';
   font-weight: 300;
   letter-spacing: 1px;
@@ -1077,6 +1077,15 @@ a:link, a:visited {
   text-align: center;
   margin: 0 50px;
   padding-bottom: 50px;
+}
+
+.error {
+  color: #cc3d3f;
+  padding-left: 20px;
+}
+
+.modal__input.error {
+  background-color: rgba(204, 61, 63, 0.05);
 }
 
 @media screen and (max-width: 972px) {
