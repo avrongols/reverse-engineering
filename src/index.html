@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="libs/ol/ol.css"/>
     <script src="libs/ol/ol.js"></script>
+    <script src="libs/jquery/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -383,13 +384,13 @@
                 <h2 class="modal__title">
                     Отправьте заявку для расчета
                 </h2>
-                <form class="modal__form" type="text" >
-                    <input type="text" placeholder="Меня зовут" class="modal__input">
-                    <input type="email" placeholder="E-mail" class="modal__input">
-                    <input type="tel" placeholder="+7 999 999 99 99" class="modal__input">
-                    <input type="text" placeholder="Комментарий" class="modal__input">
+                <form class="modal__form" name="form" id="form" type="text" enctype="multipart/form-data" action="URL">
+                    <input class="modal__input" name="name" id="name" type="text" placeholder="Меня зовут">
+                    <input class="modal__input" name="email" id="email" type="email" placeholder="E-mail">
+                    <input class="modal__input" name="tel" id="tel" type="tel" placeholder="+7 999 999 99 99">
+                    <input class="modal__input" name="comment" id="comment" type="text" placeholder="Комментарий">
                     <div class="modal__files">
-                        <input class="modal__input-files" type="file" name="file" id="file" data-multiple-caption="Прикреплено: {count}" multiple />
+                        <input class="modal__input-files" name="file" id="file" type="file" data-multiple-caption="Прикреплено: {count}" multiple />
                         <label class="modal__input-files-label" for="file">
                             Прикрепить
                         </label>
@@ -397,7 +398,7 @@
                             ТЗ, ТУ и всё то, что поможет нам оценить объём работ
                         </p>
                     </div>
-                    <button class="modal__button-send" type="submit">
+                    <button class="modal__button-send">
                         Отправить
                     </button>
                 </form>

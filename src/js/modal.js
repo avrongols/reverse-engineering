@@ -31,12 +31,13 @@ if (document.querySelector(".modal")) {
             closeModal();
         }
     });
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', (e) => {
         if (isModalActive() && e.key === "Escape") {
             closeModal();
         }
     });
 
+    // Динамическое отображение количества прикреплённых файлов
     let inputs = document.querySelectorAll('.modal__input-files');
         Array.prototype.forEach.call(inputs, function(input) {
             let label = input.nextElementSibling,
@@ -54,12 +55,41 @@ if (document.querySelector(".modal")) {
             //     fileName = e.target.value.split("\\").pop();
             //     label.style.whiteSpace = 'normal';
             // }
-
     		if (fileName) {
                 label.innerHTML = fileName;
             } else {
                 label.innerHTML = labelVal;
             }
     	});
+    });
+
+    // Отправка ajax запроса по URL из атрибута формы action
+    $(function() {
+        $('#form').on('submit', function(e) {
+            e.preventDefault();
+
+            let $that = $(this);
+            let actionUrl = $that.attr('action');
+            let formData = new FormData($that.get(0));
+
+            $.ajax({
+                url: actionUrl,
+                method: 'POST',
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: (json) => {
+                    if (json) {
+                        alert('Данные успешно отправлены.');
+                    }
+                },
+                error: (json) => {
+                    if (json) {
+                        alert('Ошибка. Данные не отправлены.');
+                    }
+                }
+            });
+        });
     });
 }

@@ -17,7 +17,7 @@ if (document.querySelector('.faq-list')) {
         }
     }
 
-    function onItemClick(item) {
+    const onItemClick = (item) => {
         let button = item.querySelector('.faq-list__btn-expand');
         let contentToExpand = item.nextElementSibling;
 
