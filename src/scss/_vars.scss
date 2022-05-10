@@ -25,7 +25,7 @@ $clr-modal-bg: rgb(255, 255, 255);
 
 @mixin active {
     & {
-        transition: .25s filter linear, .25s -webkit-filter linear;
+        transition: filter .25s, -webkit-filter .25s;
     }
     &:active {
         filter: hue-rotate(15deg) !important;
@@ -34,7 +34,7 @@ $clr-modal-bg: rgb(255, 255, 255);
 
 @mixin hover {
     & {
-        transition: transform .25s;
+        transition: transform .25s, filter .25s, -webkit-filter .25s;
     }
     &:hover {
         @include hover-wrapper {
