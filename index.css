@@ -50,8 +50,7 @@
 }
 
 .button-open-form, .modal .modal__files .modal__input-files + label, .modal .modal__button-send {
-  -webkit-transition: .25s filter linear, .25s -webkit-filter linear;
-  transition: .25s filter linear, .25s -webkit-filter linear;
+  transition: filter .25s, -webkit-filter .25s;
 }
 
 .button-open-form:active, .modal .modal__files .modal__input-files + label:active, .modal .modal__button-send:active {
@@ -60,10 +59,7 @@
 }
 
 .button-open-form, .modal .modal__files .modal__input-files + label, .modal .modal__button-send {
-  -webkit-transition: -webkit-transform .25s;
-  transition: -webkit-transform .25s;
-  transition: transform .25s;
-  transition: transform .25s, -webkit-transform .25s;
+  transition: transform .25s, filter .25s, -webkit-filter .25s;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -347,8 +343,7 @@ a:link, a:visited {
 }
 
 .menu-contacts .menu-contacts__link {
-  -webkit-transition: .25s filter linear, .25s -webkit-filter linear;
-  transition: .25s filter linear, .25s -webkit-filter linear;
+  transition: filter .25s, -webkit-filter .25s;
 }
 
 .menu-contacts .menu-contacts__link:active {
@@ -357,10 +352,7 @@ a:link, a:visited {
 }
 
 .menu-contacts .menu-contacts__link {
-  -webkit-transition: -webkit-transform .25s;
-  transition: -webkit-transform .25s;
-  transition: transform .25s;
-  transition: transform .25s, -webkit-transform .25s;
+  transition: transform .25s, filter .25s, -webkit-filter .25s;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -395,12 +387,24 @@ a:link, a:visited {
   position: relative;
   width: 300px;
   height: 300px;
-  pointer-events: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-shadow: 4px 4px 8px #3e3e3e;
           box-shadow: 4px 4px 8px #3e3e3e;
+}
+
+.card {
+  transition: transform .25s, filter .25s, -webkit-filter .25s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    -webkit-filter: brightness(1.1);
+            filter: brightness(1.1);
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
 }
 
 .card::after {
